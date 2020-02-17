@@ -1,1 +1,1 @@
-    const    z  =    500;
+const z = 500;
