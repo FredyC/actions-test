@@ -1,0 +1,18 @@
+name: "Run Prettier for PR"
+on:
+  - pull_request
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cloning the repository
+        uses: actions/checkout@v2
+      - name: Prettify the JS Code
+        uses: creyD/prettier_action@master
+        with:
+          prettier_options: "--write src/*.js"
+          branch: ${{ github.head_ref }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
